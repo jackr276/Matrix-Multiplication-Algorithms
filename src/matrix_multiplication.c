@@ -7,16 +7,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void print_matrix(int** matrix, int N){
+void print_matrix(double** matrix, int N){
 	for(int i = 0; i < N; i++){
 		for(int j = 0; j < N; j++){
-			printf("%2d ", matrix[i][j]);
+			printf("%.2f ", matrix[i][j]);
 		}
 	printf("\n");
 	}
 }
 
-
+/*
+double** inverse_of(double** matrix, int N){
+	
+}
+*/
 
 int main(int argc, char** argv){
 	//The first command line argument will be the dimension of the matrix
@@ -31,10 +35,10 @@ int main(int argc, char** argv){
 	}
 
 	//Declare and allocate our N x N matrix
-	int** matrix = (int**)malloc(sizeof(int) * N);
+	double** matrix = (double**)malloc(sizeof(double*) * N);
 
 	for(int i = 0; i < N; i++){
-		matrix[i] = (int*)malloc(sizeof(int) * N);
+		matrix[i] = (double*)malloc(sizeof(double) * N);
 	}
 
 	//Advance the pointer by 2
@@ -46,11 +50,12 @@ int main(int argc, char** argv){
 	//Grab all of our inputs
 	for(int i = 0; i < N; i++){
 		for(int j = 0; j < N; j++){
-			matrix[i][j] = atoi(argv[index]);	
+			matrix[i][j] = atof(argv[index]);	
 		 	index++;
 		}
 	}
 	
 	printf("Inputted Matrix:\n");
 	print_matrix(matrix, N);
+
 }
