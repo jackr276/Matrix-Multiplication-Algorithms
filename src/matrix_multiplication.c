@@ -16,11 +16,15 @@ void print_matrix(double** matrix, int N){
 	}
 }
 
-/*
-double** inverse_of(double** matrix, int N){
-	
+double** matrix_mult_classic(double** matrix_a, double** matrix_b){
+
 }
-*/
+
+
+double** matrix_mult_strassen(double** matrix_a, double** matrix_b){
+
+}
+
 
 int main(int argc, char** argv){
 	//The first command line argument will be the dimension of the matrix
@@ -36,9 +40,11 @@ int main(int argc, char** argv){
 
 	//Declare and allocate our N x N matrix
 	double** matrix = (double**)malloc(sizeof(double*) * N);
+	double** inverse = (double**)malloc(sizeof(double*) * N);
 
 	for(int i = 0; i < N; i++){
 		matrix[i] = (double*)malloc(sizeof(double) * N);
+		inverse[i] = (double*)malloc(sizeof(double) * N);
 	}
 
 	//Advance the pointer by 2
@@ -57,5 +63,7 @@ int main(int argc, char** argv){
 	
 	printf("Inputted Matrix:\n");
 	print_matrix(matrix, N);
+
+	print_matrix(inverse, N);
 
 }
